@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-//import { Router }            from '@angular/router';
 
 import { Item } from '../items/item';
 import { ItemService } from '../items/item.service';
@@ -25,7 +24,6 @@ export class ListItemsComponent implements OnInit {
   }
 
   getItems() : void {
-
     this.itemService.getItems()
       .subscribe(
         items => this.items = items,
