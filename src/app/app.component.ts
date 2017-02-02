@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'domotics',
+  template: `
+   <h1>{{title}}</h1>
+   <nav>
+     <a routerLink="/listitems">List Items</a>
+   </nav>
+   <router-outlet></router-outlet>
+   `
 })
+
 export class AppComponent {
-  title = 'app works!';
+  title = 'Domotics';
 }
