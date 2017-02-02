@@ -18,44 +18,18 @@ export class ListItemsComponent implements OnInit {
   errorMessage: string;
   mode = 'Observable';
 
-  //private itemService : ItemService;
-
   constructor(
     private itemService: ItemService) { }
-
-  /*
-  errorMessage: string;
-  mode = 'Observable';*/
-
-  //constructor(private itemService: ItemService) { }
-
   ngOnInit() {
-    console.log('ItemComp onInit - before getItems()');
     this.getItems();
-    /*
-    this.itemService.getItems()
-      .then(items => this.items = items);*/
-    console.log('ItemComp onInit - after getItems()');
   }
 
   getItems() : void {
-    console.log('ItemComp getItems - before getItems() call');
+
     this.itemService.getItems()
       .subscribe(
         items => this.items = items,
         error =>  this.errorMessage = <any>error);
-    //console.log(items);
-    /*
-    this.itemService
-      .getItems()
-      .then(items => this.items = items);*/
-    console.log('ItemComp getItems - before getItems() call');
-    /*
-    this.itemService.getItems()
-      .subscribe(
-        items => this.items = items,
-        error =>  this.errorMessage = <any>error);
-    console.log('back to component');*/
   }
 
 

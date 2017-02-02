@@ -20,75 +20,12 @@ export class ItemService {
 
 
   getItems(): Observable<Item[]> {
-  console.log('ItemService getItems - before http.get() call');
 
   return this.http.get(this.itemsUrl)
-  //.map(this.extractData)
     .map(response => <Item[]>response.json())
     .do((data => console.log('parsed')))
     .catch(this.handleError);
-
-  //console.log('ItemService getItems - after http.get() call');
 }
-/*
-  getItems(): Observable {
-    console.log('ItemService getItems - before http.get() call');
-
-    return this.http.get(this.itemsUrl)
-    //.map(this.extractData)
-      //.map((response: Response) => <Item[]> response.json())
-      //.do((response: Response) => console.log('parsed'))
-      .catch(this.handleError);
-
-    //console.log('ItemService getItems - after http.get() call');
-  }
-
-  getItems(): Item[] {
-    console.log('ItemService getItems - before http.get() call');
-
-    return this.http.get(this.itemsUrl)
-      //.toPromise()
-      .then(response => response.json().data as Item[])
-      .catch(this.handleError);
-
-    //console.log('ItemService getItems - after http.get() call');
-  }
-*/
-
-  /*
-  getItems() : Observable<Item[]> {
-    return this.http.get('http://localhost:9100/init').map(this.extractData).catch(this.handleError);
-
-  }*/
-
-  private extractData(res: Response) {
-
-    console.log('get data response');
-    let body = res.json();
-    console.log('after let');
-    console.log(JSON.stringify(body));
-    //return this.items;
-    return body.data || { };
-  }
-/*
-  getItemsMock(): Promise<Item[]> {
-    return Promise.resolve(ITEMS);
-  }
-
-
-/*
-  getItemsSlowly(): Promise<Item[]> {
-    return new Promise(resolve => {
-      // Simulate server latency with 2 second delay
-      setTimeout(() => resolve(this.getItems()), 2000);
-    });
-  }
-
-  getItem(uid: string): Promise<Item> {
-    return this.getItems()
-      .then(items => items.find(item => item.uid === uid));
-  }
-  */
 
   private handleError (error: Response | any) {
 
