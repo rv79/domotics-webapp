@@ -4,8 +4,8 @@ import { FormsModule }    from '@angular/forms';
 import { HttpModule, JsonpModule }     from '@angular/http';
 
 import { AppComponent }         from './app.component';
-import { ListItemsComponent }   from './listitems/listitems.component';
-import { ItemService }          from './items/item.service';
+import { ListItemsComponent }   from './components/listitems/listitems.component';
+import { ItemService }          from './services/item.service';
 
 import { AppRoutingModule }     from './app-routing.module';
 

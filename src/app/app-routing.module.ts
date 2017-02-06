@@ -1,7 +1,7 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ListItemsComponent }   from './listitems/listitems.component';
+import { ListItemsComponent }   from './components/listitems/listitems.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/listitems', pathMatch: 'full' },

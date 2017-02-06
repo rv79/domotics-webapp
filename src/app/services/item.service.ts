@@ -1,4 +1,4 @@
-import { Item } from './item';
+import { Item } from '../objects/item';
 
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class ItemService {
 
-  private itemsUrl = 'http://localhost:9100/init';  // URL to web api
+  private itemsUrl = 'http://localhost:9100/mock';  // URL to web api
 
   constructor(private http: Http) { }
 
