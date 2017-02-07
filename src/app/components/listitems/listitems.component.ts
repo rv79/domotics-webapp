@@ -126,20 +126,6 @@ export class ListItemsComponent implements OnInit {
 
     this.itemService.putValue(itemLocal)
       .subscribe(null,
-        error => this.errorMessage = <any>error);;
+        error => this.errorMessage = <any>error);
   }
-
-      /*
-      getChecked(uid:string):boolean {
-        for (let i = 0; i < this.items.length; i++) {
-          if (this.items[i].uid == uid) {
-            if(this.items[i].value == 0) {
-              return false;
-            } else {
-              return true;
-            }
-          }
-        }
-      }
-      */
 }
