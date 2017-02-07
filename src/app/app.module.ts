@@ -8,6 +8,7 @@ import { ListItemsComponent }   from './components/listitems/listitems.component
 import { ItemService }          from './services/item.service';
 
 import { AppRoutingModule }     from './app-routing.module';
+import {TextComponent} from "./components/testbinding/text.component";
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { AppRoutingModule }     from './app-routing.module';
   declarations: [
     AppComponent,
     ListItemsComponent,
+    TextComponent,
   ],
   providers: [ ItemService ],
   bootstrap: [ AppComponent ]

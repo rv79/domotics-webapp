@@ -1,5 +1,9 @@
 <h2>List Items</h2>
-<table border="1px">
+
+{{log}}
+  <!--div list-items-->
+<table border="1">
+
   <tr>
     <th>Provider</th>
     <th>UID</th>
@@ -9,6 +13,10 @@
     <th>Location Name</th>
     <th>Type ID</th>
     <th>Value</th>
+    <th></th>
+    <!--th>New</th>
+    <th>Set</th-->
+
   </tr>
   <tr *ngFor="let item of items">
     <td>{{item.provider}}</td>
@@ -19,7 +27,26 @@
     <td>{{item.locationName}}</td>
     <td>{{item.typeID}}</td>
     <td>{{item.value}}</td>
+    <td>
+
+      <label *ngIf="item.typeID == 1" [class.selected]="cb.checked">
+        <input #cb type="checkbox" [(ngModel)]="item.value" (change)="setOnOff(item.uid,cb)">
+      </label>
+
+      <label *ngIf="item.typeID == 2" [class.selected]="txt.value">
+        <input #txt type="text" [(ngModel)]="item.value" (input)="setValue(item.uid,txt)" size="1">
+      </label>
+    </td>
+    <!--td>
+      <input #value type="text" size="3">
+      <!--input #uid type="hidden" value="{{item.uid}}"-->
+    <!--/td>
+    <td>
+      <button #comp list-items (click)="comp.setValue(item.uid, value.value)">Set</button>
+    </td-->
+
+
   </tr>
 </table>
-
+<!--/div-->
 <p *ngIf="errorMessage">{{errorMessage}}</p>

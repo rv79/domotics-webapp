@@ -7,4 +7,11 @@ export class Item {
   locationName : string;
   typeID : number;
   value : number;
+  /*
+  selected : boolean;
+
+  constructor () {
+    this.selected = this.value!=0;
+  }
+  */
 }
