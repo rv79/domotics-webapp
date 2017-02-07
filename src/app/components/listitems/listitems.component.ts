@@ -80,39 +80,39 @@ export class ListItemsComponent implements OnInit {
     this.items[this.getIndex(item.uid)].value = item.value;
   }
 
-  private getIndex(uid:string) : number {
+  private getIndex(uid: string): number {
     for (let i = 0; i < this.items.length; i++) {
       if (this.items[i].uid == uid) {
-       return i;
+        return i;
       }
     }
   }
 
-  setOnOff(uid : string, element: HTMLInputElement) : void {
+  setOnOff(uid: string, element: HTMLInputElement): void {
     console.log(`Checkbox ${element.value} was ${element.checked ? '' : 'un'}checked\n`);
-    console.log('uid='+uid);
+    console.log('uid=' + uid);
 
     let itemLocal = new Item();
 
     itemLocal.uid = this.items[this.getIndex(uid)].uid;
 
-    console.log('setOnOff json='+JSON.stringify(itemLocal));
+    console.log('setOnOff json=' + JSON.stringify(itemLocal));
 
     if (element.checked) {
-      itemLocal.value=100;
-      this.itemService.putValue(itemLocal)
-        .subscribe(null ,
-        error => this.errorMessage = <any>error);
-    } else {
-      itemLocal.value=0;
+      itemLocal.value = 100;
       this.itemService.putValue(itemLocal)
         .subscribe(null,
-        error => this.errorMessage = <any>error);
+          error => this.errorMessage = <any>error);
+    } else {
+      itemLocal.value = 0;
+      this.itemService.putValue(itemLocal)
+        .subscribe(null,
+          error => this.errorMessage = <any>error);
     }
   }
 
-  setValue(uid : string, element: HTMLInputElement) : void {
-    console.log('uid=' + uid + ' value='+element.value);
+  setValue(uid: string, element: HTMLInputElement): void {
+    console.log('uid=' + uid + ' value=' + element.value);
 
     let itemLocal = new Item();
 
@@ -121,8 +121,12 @@ export class ListItemsComponent implements OnInit {
     console.log('setValue json=' + JSON.stringify(itemLocal));
     itemLocal.value = Number(element.value);
 
-    if (itemLocal.value < 0) {itemLocal.value = 0;}
-    if (itemLocal.value > 100) {itemLocal.value = 100;}
+    if (itemLocal.value < 0) {
+      itemLocal.value = 0;
+    }
+    if (itemLocal.value > 100) {
+      itemLocal.value = 100;
+    }
 
     this.itemService.putValue(itemLocal)
       .subscribe(null,
